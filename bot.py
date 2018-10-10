@@ -8,7 +8,7 @@ import requests
 
 
 
-bot = telebot.TeleBot(token="635974688:AAFC8IcXEkxI5g9VuRVGcn8U_v5dEyT_hzw")
+bot = telebot.TeleBot(token="")
 
 commands = {  # command description used in the "help" command
               'start': 'Salamlama',
@@ -62,7 +62,7 @@ def book_suggestion(message):
 
 @bot.message_handler(commands = ["video"])
 def video_suggestion(message):
-    pass
+    bot.reply_to(message, "Python öyrənmək üçün YouTube pleylistlər")
 
 
 
