@@ -1,6 +1,4 @@
 # coding: utf8
-
-
 import time
 import telebot
 import requests
@@ -13,9 +11,10 @@ bot = telebot.TeleBot(token="")
 commands = {  # command description used in the "help" command
               'start': 'Salamlama',
               'help': 'Mövcud əmrləri göstər',
-              'kitab': 'Faydalı kitablar',
+              'kitab': 'Pythona aid faydalı kitablar',
               'admin': 'Adminlə əlaqə',
-              "video": "Faydalı videodərs pleylistləri"
+              "video": "Faydalı videodərs pleylistləri",
+              "online_kurslar" : "Python öyrənmək üçün online kurslar"
 }
 
 
@@ -62,8 +61,12 @@ def book_suggestion(message):
 
 @bot.message_handler(commands = ["video"])
 def video_suggestion(message):
-    bot.reply_to(message, "Python öyrənmək üçün YouTube pleylistlər")
+    bot.reply_to(message, "Python öyrənmək üçün YouTube pleylistləri:\n 1. Corey Schafer (https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) \n 2: Sentdex (https://www.youtube.com/user/sentdex) \n 3: Dan Bader (https://www.youtube.com/channel/UCI0vQvr9aFn27yR6Ej6n5UA) \n 4: Giraffe Academy Python in one video (https://www.youtube.com/watch?v=rfscVS0vtbw) \n 5: Telusko Python Programming (https://www.youtube.com/watch?v=QXeEoD0pB3E&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3)")
 
+
+@bot.message_handler(commands = ["online_kurslar"])
+def online_course_suggestion(message):
+    bot.reply_to(message, "Nothing for now")
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -80,4 +83,3 @@ while True:
         # maybe there are others, therefore Exception
     except Exception:
         time.sleep(15)
-
